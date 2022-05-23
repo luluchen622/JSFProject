@@ -22,14 +22,6 @@ public class PersonHome {
 		return service.getPersonList();
 	}
 
-	public void setPersonList(List<PersonVO> personList) {
-		this.personList = personList;
-	}
-
-	public void setPersonVO(PersonVO personVO) {
-		this.personVO = personVO;
-	}
-
 	public String getOne(int id) {
 		PersonVO personOne = service.getOne(id);
 		if (personOne != null) {
