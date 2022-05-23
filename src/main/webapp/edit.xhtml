@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>edit</title>
+</h:head>
+<h:body>
+	<h:form>
+		<div>
+			<h:outputLabel for="personName">姓名</h:outputLabel>
+			<div>
+				<h:inputText id="personName" value="#{editPerson.name}" />
+			</div>
+		</div>
+		<div>
+			<h:outputLabel for="personEmail">Email</h:outputLabel>
+			<div>
+				<h:inputText id="personEmail" value="#{editPerson.email}" />
+			</div>
+		</div>
+		<br />
+		<div>
+			<f:facet name="header">儲存</f:facet>
+			<h:commandButton action="#{personHome.edit(editPerson)}" value="編輯"></h:commandButton>
+		</div>
+	</h:form>
+</h:body>
+</html>
