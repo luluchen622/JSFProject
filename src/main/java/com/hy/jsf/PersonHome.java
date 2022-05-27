@@ -58,4 +58,12 @@ public class PersonHome {
 		service.delete(id);
 	}
 
+	public String getAddButton() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("<div>");
+		sb.append("<a href=\"add.xhtml\"><input type=\"button\" value=\"新增\" /></a>");
+		sb.append("</div>");
+		return sb.toString();
+	}
+
 }
