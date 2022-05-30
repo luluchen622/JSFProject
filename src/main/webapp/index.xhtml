@@ -40,13 +40,13 @@
 			</h:column>
 		</h:dataTable>
 	</h:form>
-	
+
 	<h3>jQuery 檢核測試</h3>
 	<h:form class="validationForm">
 		<input type="text" value="" name="checkInput" class="required" />
 		<input type="submit" value="submit" />
 	</h:form>
-	
+
 	<h3>jQuery 自訂plugin</h3>
 	<div>
 		<input type="button" value="jqueryTest" class="jqueryTest" />
@@ -88,23 +88,34 @@
 	
 	// 使用jquery validate
 	
+	$.extend($.validator.messages, {
+    required: "此欄位必填",
+    minlength: $.validator.format("最少要输入 {0} 个字符")
+});
+	
 	$(function(){
 	    $('.validationForm').validate({
 	    	
 	        rules : {
 	        	checkInput : {
 	                    required : true, 
-	                    minlength : 2
+	                    minlength : 3
 	                    }
-	                },          
-
-	        messages : {
-	        	checkInput : {
-	                    required : '帳號不得為空！',
-	                    minlength : '帳號不得小於 2 位！',
-	                    }
-	                }
+	                }, 
+	         /**     
+	         messages 錯誤訊息，可以個別寫在檢核內、也可以集中統一制定
+	         $.extend($.validator.messages, {))
+	         
+   	        messages : {
+   	        	checkInput : {
+   	                    required : '帳號不得為空！',
+   	                    // 使用{0}可自動抓取所輸入的限制範圍並顯示
+   	                    minlength : $.validator.format("最少要输入 {0} 個字符"),
+   	                    }
+   	                }
+	         **/
 	          });
+
 	});
 	
 	</script>
