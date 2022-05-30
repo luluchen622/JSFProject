@@ -40,5 +40,76 @@
 			</h:column>
 		</h:dataTable>
 	</h:form>
+	
+	<h3>jQuery 檢核測試</h3>
+	<h:form class="validationForm">
+		<input type="text" value="" name="checkInput" class="required" />
+		<input type="submit" value="submit" />
+	</h:form>
+	
+	<h3>jQuery 自訂plugin</h3>
+	<div>
+		<input type="button" value="jqueryTest" class="jqueryTest" />
+	</div>
+
+	<div class="jsTest"></div>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.js"
+		integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+		crossorigin="anonymous"></script>
+	<script
+		src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+	<script
+		src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+
+
+
+	<script>
+	
+	$(".jsTest").html(`
+			<br/>
+			<h:outputText value="jsTest1" /> <br/>
+			<h:outputText value="jsTest2" /> <br/>
+				<h:outputText value="jsTest3" /> <br/>
+	`);
+	
+	//自訂jquery plugin
+	
+	$.fn.jqueryClickTest = function() {
+		return $(this).click(function(){
+        	alert("jquery plugin click event");
+        })
+	}
+	
+	// 測試使用自訂的 jquery plugin
+	
+	$(".jqueryTest").jqueryClickTest();
+	
+	
+	// 使用jquery validate
+	
+	$(function(){
+	    $('.validationForm').validate({
+	    	
+	        rules : {
+	        	checkInput : {
+	                    required : true, 
+	                    minlength : 2
+	                    }
+	                },          
+
+	        messages : {
+	        	checkInput : {
+	                    required : '帳號不得為空！',
+	                    minlength : '帳號不得小於 2 位！',
+	                    }
+	                }
+	          });
+	});
+	
+	</script>
+
 </h:body>
+
 </html>
+
